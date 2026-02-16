@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Assista filme no PipocaFlix">
+    <title>Filme - PipocaFlix</title>
+    
+    <link rel="icon" type="image/png" href="/assets/logo.png">
+    
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/player.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header scrolled">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">🍿 PIPOCAFLIX</a>
+                
+                <nav class="nav">
+                    <a href="/">Home</a>
+                    <a href="/search.html">Filmes</a>
+                    <a href="/search.html">Séries</a>
+                </nav>
+                
+                <div class="search-bar">
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        placeholder="Buscar..."
+                        autocomplete="off"
+                    >
+                    <span>🔍</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- PLAYER PAGE -->
+    <main class="player-page">
+        <!-- VIDEO PLAYER -->
+        <div class="video-container">
+            <div class="video-wrapper">
+                <video id="video-player" class="video-player" preload="metadata">
+                    Seu navegador não suporta vídeo HTML5.
+                </video>
+
+                <!-- SMARTLINK OVERLAY -->
+                <div id="smartlink-overlay" class="smartlink-overlay hidden">
+                    <div class="smartlink-content">
+                        <h2>🔓 Desbloqueie o Player</h2>
+                        <p>Para assistir gratuitamente, clique no botão abaixo 2 vezes</p>
+                        <button id="smartlink-btn" class="smartlink-btn">
+                            Clique Aqui para Desbloquear
+                        </button>
+                        <p id="smartlink-counter" class="smartlink-counter">
+                            Cliques restantes: 2
+                        </p>
+                    </div>
+                </div>
+
+                <!-- LOADING -->
+                <div id="video-loading" class="video-loading">
+                    <div class="loading"></div>
+                </div>
+
+                <!-- CONTROLES CUSTOMIZADOS -->
+                <div class="video-controls">
+                    <!-- Progress Bar -->
+                    <div id="progress-bar" class="progress-bar">
+                        <div id="buffer-bar" class="buffer-bar"></div>
+                        <div id="progress-filled" class="progress-filled"></div>
+                    </div>
+
+                    <!-- Controles -->
+                    <div class="controls-row">
+                        <div class="controls-left">
+                            <button id="play-pause" class="control-btn">▶</button>
+                            <div class="volume-control">
+                                <button id="volume-btn" class="control-btn">🔊</button>
+                                <div id="volume-slider" class="volume-slider">
+                                    <div id="volume-filled" class="volume-filled"></div>
+                                </div>
+                            </div>
+                            <span id="time-display" class="time-display">0:00 / 0:00</span>
+                        </div>
+
+                        <div class="controls-right">
+                            <div class="speed-control">
+                                <button id="speed-btn" class="control-btn">1x</button>
+                                <div id="speed-menu" class="speed-menu">
+                                    <div class="speed-option" data-speed="0.5">0.5x</div>
+                                    <div class="speed-option" data-speed="0.75">0.75x</div>
+                                    <div class="speed-option active" data-speed="1">Normal</div>
+                                    <div class="speed-option" data-speed="1.25">1.25x</div>
+                                    <div class="speed-option" data-speed="1.5">1.5x</div>
+                                    <div class="speed-option" data-speed="2">2x</div>
+                                </div>
+                            </div>
+                            <button id="fullscreen-btn" class="control-btn">⛶</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INFORMAÇÕES DO FILME -->
+        <div class="movie-info">
+            <div class="movie-header">
+                <h1 id="movie-title" class="movie-title">Carregando...</h1>
+                <div id="movie-meta" class="movie-meta">
+                    <!-- Meta será inserida via JS -->
+                </div>
+            </div>
+
+            <!-- BOTÕES DE AÇÃO -->
+            <div class="action-buttons">
+                <button id="cast-btn" class="action-btn">
+                    <svg fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M0 10a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-1zm5-9a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h1zM7.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-1z"/>
+                    </svg>
+                    Transmitir
+                </button>
+
+                <button id="download-btn" class="action-btn">
+                    <svg fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                    </svg>
+                    Download
+                </button>
+
+                <button id="trailer-btn" class="action-btn">
+                    <svg fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                    </svg>
+                    Trailer
+                </button>
+
+                <button id="share-btn" class="action-btn">
+                    <svg fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                    </svg>
+                    Compartilhar
+                </button>
+            </div>
+
+            <!-- SINOPSE -->
+            <div class="synopsis">
+                <h3>Sinopse</h3>
+                <p id="synopsis-text" class="synopsis-text">
+                    Carregando sinopse...
+                </p>
+                <span id="read-more" class="read-more hidden">Ler mais</span>
+            </div>
+
+            <!-- ELENCO -->
+            <div class="cast-section">
+                <h3>Elenco</h3>
+                <div id="cast-grid" class="cast-grid">
+                    <!-- Elenco será inserido via JS -->
+                </div>
+            </div>
+
+            <!-- RECOMENDAÇÕES -->
+            <div class="recommendations">
+                <h3>Você também pode gostar</h3>
+                <div id="recommendations-grid" class="recommendations-grid">
+                    <!-- Recomendações serão inseridas via JS -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL DE TRAILER -->
+    <div id="trailer-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="document.getElementById('trailer-modal').classList.remove('active'); document.getElementById('trailer-iframe').src = '';">×</span>
+            <div class="trailer-wrapper">
+                <iframe id="trailer-iframe" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 PipocaFlix. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="/config/baserow.js"></script>
+    <script src="/js/api.js"></script>
+    <script src="/js/security.js"></script>
+    <script src="/js/adblock.js"></script>
+    <script src="/js/ads.js"></script>
+    <script src="/js/movie.js"></script>
+</body>
+</html>

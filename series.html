@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Assista série no PipocaFlix">
+    <title>Série - PipocaFlix</title>
+    
+    <link rel="icon" type="image/png" href="/assets/logo.png">
+    
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/player.css">
+    <link rel="stylesheet" href="/css/series.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header scrolled">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">🍿 PIPOCAFLIX</a>
+                
+                <nav class="nav">
+                    <a href="/">Home</a>
+                    <a href="/search.html">Filmes</a>
+                    <a href="/search.html">Séries</a>
+                </nav>
+                
+                <div class="search-bar">
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        placeholder="Buscar..."
+                        autocomplete="off"
+                    >
+                    <span>🔍</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SERIES PAGE -->
+    <main class="series-page">
+        <!-- VIDEO PLAYER -->
+        <div class="video-container">
+            <div class="video-wrapper">
+                <video id="video-player" class="video-player" preload="metadata">
+                    Seu navegador não suporta vídeo HTML5.
+                </video>
+
+                <!-- SMARTLINK OVERLAY -->
+                <div id="smartlink-overlay" class="smartlink-overlay hidden">
+                    <div class="smartlink-content">
+                        <h2>🔓 Desbloqueie o Player</h2>
+                        <p>Para assistir gratuitamente, clique no botão abaixo 2 vezes</p>
+                        <button id="smartlink-btn" class="smartlink-btn">
+                            Clique Aqui para Desbloquear
+                        </button>
+                        <p id="smartlink-counter" class="smartlink-counter">
+                            Cliques restantes: 2
+                        </p>
+                    </div>
+                </div>
+
+                <!-- LOADING -->
+                <div id="video-loading" class="video-loading">
+                    <div class="loading"></div>
+                </div>
+
+                <!-- CONTROLES CUSTOMIZADOS -->
+                <div class="video-controls">
+                    <!-- Progress Bar -->
+                    <div id="progress-bar" class="progress-bar">
+                        <div id="buffer-bar" class="buffer-bar"></div>
+                        <div id="progress-filled" class="progress-filled"></div>
+                    </div>
+
+                    <!-- Controles -->
+                    <div class="controls-row">
+                        <div class="controls-left">
+                            <button id="play-pause" class="control-btn">▶</button>
+                            <span id="time-display" class="time-display">0:00 / 0:00</span>
+                        </div>
+
+                        <div class="controls-right">
+                            <button id="fullscreen-btn" class="control-btn">⛶</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INFORMAÇÕES DA SÉRIE -->
+        <div class="movie-info">
+            <div class="movie-header">
+                <h1 id="series-title" class="movie-title">Carregando...</h1>
+                <div id="series-meta" class="movie-meta">
+                    <!-- Meta será inserida via JS -->
+                </div>
+            </div>
+
+            <!-- BOTÕES DE AÇÃO -->
+            <div class="action-buttons">
+                <button id="share-btn" class="action-btn">
+                    <svg fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                    </svg>
+                    Compartilhar
+                </button>
+            </div>
+
+            <!-- SINOPSE -->
+            <div class="synopsis">
+                <h3>Sinopse</h3>
+                <p id="synopsis-text" class="synopsis-text">
+                    Carregando sinopse...
+                </p>
+            </div>
+
+            <!-- SELETOR DE TEMPORADAS -->
+            <div class="season-selector">
+                <div class="season-dropdown">
+                    <button id="season-button" class="season-button">
+                        Temporada 1
+                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                        </svg>
+                    </button>
+                    <div id="season-menu" class="season-menu">
+                        <!-- Opções de temporadas serão inseridas via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- EPISÓDIOS -->
+            <div class="episodes-section">
+                <h3>Episódios</h3>
+                <div id="episodes-grid" class="episodes-grid">
+                    <!-- Episódios serão inseridos via JS -->
+                </div>
+            </div>
+
+            <!-- ELENCO -->
+            <div class="cast-section">
+                <h3>Elenco</h3>
+                <div id="cast-grid" class="cast-grid">
+                    <!-- Elenco será inserido via JS -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- AUTOPLAY OVERLAY -->
+    <div id="autoplay-overlay" class="autoplay-overlay">
+        <div class="autoplay-header">
+            <h4>Próximo Episódio</h4>
+            <button class="autoplay-close">×</button>
+        </div>
+        
+        <div class="autoplay-next-info">
+            <div class="autoplay-thumbnail">
+                <img src="" alt="Próximo episódio">
+            </div>
+            <div class="autoplay-details">
+                <h5>Título do Episódio</h5>
+                <p>Temporada X • Episódio Y</p>
+            </div>
+        </div>
+
+        <div class="autoplay-timer">
+            Próximo episódio em 10 segundos...
+        </div>
+
+        <div class="autoplay-progress">
+            <div class="autoplay-progress-bar"></div>
+        </div>
+
+        <div class="autoplay-buttons">
+            <button class="btn-watch">Assistir Agora</button>
+            <button class="btn-cancel">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 PipocaFlix. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="/config/baserow.js"></script>
+    <script src="/js/api.js"></script>
+    <script src="/js/security.js"></script>
+    <script src="/js/adblock.js"></script>
+    <script src="/js/ads.js"></script>
+    <script src="/js/series.js"></script>
+</body>
+</html>

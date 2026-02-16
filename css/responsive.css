@@ -1,0 +1,341 @@
+/* css/responsive.css */
+
+/* TABLETS E DISPOSITIVOS MÉDIOS */
+@media (max-width: 1024px) {
+    :root {
+        --container-padding: 3%;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .recent-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 1rem;
+    }
+    
+    .carousel .movie-card {
+        min-width: 160px;
+    }
+    
+    .movie-title {
+        font-size: 2rem;
+    }
+    
+    .cast-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    
+    .episodes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
+/* TABLETS PEQUENOS */
+@media (max-width: 768px) {
+    .header-content {
+        flex-wrap: wrap;
+    }
+    
+    .nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        margin-top: 1rem;
+        gap: 1rem;
+    }
+    
+    .search-bar {
+        min-width: 200px;
+    }
+    
+    .hero-banner {
+        height: 60vh;
+        margin-top: 120px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-description {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .recent-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+    
+    .carousel .movie-card {
+        min-width: 140px;
+    }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .movie-title {
+        font-size: 1.8rem;
+    }
+    
+    .movie-meta {
+        font-size: 0.9rem;
+        gap: 1rem;
+    }
+    
+    .action-buttons {
+        gap: 0.5rem;
+    }
+    
+    .action-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .cast-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 1rem;
+    }
+    
+    .recommendations-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+    
+    .episodes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+    :root {
+        --container-padding: 4%;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    .nav {
+        gap: 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .search-bar {
+        min-width: 150px;
+        padding: 0.4rem 0.75rem;
+    }
+    
+    .hero-banner {
+        height: 50vh;
+    }
+    
+    .hero-content {
+        bottom: 10%;
+    }
+    
+    .hero-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-description {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    .section-title {
+        font-size: 1.3rem;
+    }
+    
+    .recent-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 0.75rem;
+    }
+    
+    .carousel .movie-card {
+        min-width: 120px;
+    }
+    
+    .carousel-btn {
+        display: none;
+    }
+    
+    .video-controls {
+        padding: 1rem 0.75rem 0.75rem;
+    }
+    
+    .controls-row {
+        gap: 0.5rem;
+    }
+    
+    .control-btn {
+        font-size: 1.2rem;
+        padding: 0.25rem;
+    }
+    
+    .time-display {
+        font-size: 0.75rem;
+        min-width: 80px;
+    }
+    
+    .volume-control {
+        display: none;
+    }
+    
+    .movie-title {
+        font-size: 1.5rem;
+    }
+    
+    .movie-meta {
+        font-size: 0.85rem;
+        gap: 0.75rem;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .action-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .synopsis h3 {
+        font-size: 1.2rem;
+    }
+    
+    .cast-section h3,
+    .recommendations h3 {
+        font-size: 1.2rem;
+    }
+    
+    .cast-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+    
+    .cast-name {
+        font-size: 0.85rem;
+    }
+    
+    .cast-character {
+        font-size: 0.75rem;
+    }
+    
+    .recommendations-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    
+    .season-dropdown {
+        max-width: 100%;
+    }
+    
+    .episodes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .autoplay-overlay {
+        bottom: 1rem;
+        right: 1rem;
+        left: 1rem;
+        max-width: none;
+        padding: 1rem;
+    }
+    
+    .autoplay-next-info {
+        flex-direction: column;
+    }
+    
+    .autoplay-thumbnail {
+        width: 100%;
+    }
+    
+    .search-input-large {
+        font-size: 1rem;
+        padding: 1rem 2.5rem 1rem 1rem;
+    }
+    
+    .search-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* MOBILE PEQUENO */
+@media (max-width: 320px) {
+    .recent-grid,
+    .carousel .movie-card,
+    .recommendations-grid,
+    .search-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .hero-title {
+        font-size: 1.2rem;
+    }
+    
+    .movie-title {
+        font-size: 1.3rem;
+    }
+}
+
+/* LANDSCAPE MOBILE */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-banner {
+        height: 100vh;
+    }
+    
+    .header {
+        padding: 0.5rem 0;
+    }
+    
+    .video-controls {
+        padding: 0.5rem;
+    }
+}
+
+/* PRINT */
+@media print {
+    .header,
+    .footer,
+    .action-buttons,
+    .video-controls,
+    .carousel-btn {
+        display: none !important;
+    }
+}

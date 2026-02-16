@@ -1,0 +1,341 @@
+/* css/series.css */
+
+.series-page {
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+/* SELETOR DE TEMPORADAS */
+.season-selector {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 var(--container-padding);
+}
+
+.season-dropdown {
+    position: relative;
+    max-width: 300px;
+}
+
+.season-button {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.season-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--primary-color);
+}
+
+.season-button svg {
+    transition: transform 0.3s ease;
+}
+
+.season-button.active svg {
+    transform: rotate(180deg);
+}
+
+.season-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(20, 20, 20, 0.98);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 100;
+    display: none;
+}
+
+.season-menu.active {
+    display: block;
+}
+
+.season-option {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.season-option:last-child {
+    border-bottom: none;
+}
+
+.season-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.season-option.active {
+    background: var(--primary-color);
+    font-weight: 600;
+}
+
+/* EPISÓDIOS */
+.episodes-section {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 var(--container-padding);
+}
+
+.episodes-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.episodes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.episode-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    border: 2px solid transparent;
+}
+
+.episode-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-lg);
+}
+
+.episode-thumbnail {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--background-light);
+    overflow: hidden;
+}
+
+.episode-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.episode-play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(229, 9, 20, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition-fast);
+}
+
+.episode-card:hover .episode-play-icon {
+    opacity: 1;
+}
+
+.episode-play-icon svg {
+    width: 30px;
+    height: 30px;
+    color: white;
+    margin-left: 3px;
+}
+
+.episode-duration {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.episode-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: var(--primary-color);
+}
+
+.episode-info {
+    padding: 1rem;
+}
+
+.episode-number {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.episode-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.episode-synopsis {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* AUTOPLAY NEXT */
+.autoplay-overlay {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: rgba(0, 0, 0, 0.95);
+    border: 2px solid var(--primary-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    max-width: 400px;
+    z-index: 1000;
+    display: none;
+}
+
+.autoplay-overlay.active {
+    display: block;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.autoplay-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.autoplay-header h4 {
+    font-size: 1.1rem;
+}
+
+.autoplay-close {
+    background: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+}
+
+.autoplay-next-info {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.autoplay-thumbnail {
+    width: 120px;
+    aspect-ratio: 16/9;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.autoplay-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.autoplay-details h5 {
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+
+.autoplay-details p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.autoplay-timer {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.autoplay-progress {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.autoplay-progress-bar {
+    height: 100%;
+    background: var(--primary-color);
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.autoplay-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.autoplay-buttons button {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.btn-watch {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.btn-cancel {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.btn-watch:hover,
+.btn-cancel:hover {
+    transform: scale(1.02);
+}

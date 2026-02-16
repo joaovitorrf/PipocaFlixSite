@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PipocaFlix - Assista aos melhores filmes e séries online gratuitamente">
+    <meta name="keywords" content="filmes, séries, streaming, online, grátis">
+    <meta name="author" content="PipocaFlix">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="PipocaFlix - Streaming de Filmes e Séries">
+    <meta property="og:description" content="Assista aos melhores filmes e séries online">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/assets/logo.png">
+    
+    <title>PipocaFlix - Filmes e Séries Online</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/assets/logo.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="http://213.199.56.115">
+</head>
+<body>
+    <!-- LOADING OVERLAY -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading"></div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">🍿 PIPOCAFLIX</a>
+                
+                <nav class="nav">
+                    <a href="/">Home</a>
+                    <a href="/search.html">Filmes</a>
+                    <a href="/search.html">Séries</a>
+                </nav>
+                
+                <div class="search-bar">
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        placeholder="Buscar filmes e séries..."
+                        autocomplete="off"
+                    >
+                    <span>🔍</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO BANNER -->
+    <section class="hero-banner">
+        <div id="hero-slider" class="hero-slider">
+            <!-- Slides serão inseridos via JS -->
+        </div>
+        <div id="hero-nav" class="hero-nav">
+            <!-- Navegação será inserida via JS -->
+        </div>
+    </section>
+
+    <!-- CONTEÚDO RECENTE -->
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title">Adicionados Recentemente</h2>
+            <div id="recent-grid" class="recent-grid">
+                <!-- Cards serão inseridos via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SESSÕES DINÂMICAS -->
+    <div id="sessions-container">
+        <!-- Sessões serão inseridas via JS -->
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>PipocaFlix</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/search.html">Filmes</a></li>
+                        <li><a href="/search.html">Séries</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Categorias</h3>
+                    <ul>
+                        <li><a href="/search.html?q=Ação">Ação</a></li>
+                        <li><a href="/search.html?q=Comédia">Comédia</a></li>
+                        <li><a href="/search.html?q=Drama">Drama</a></li>
+                        <li><a href="/search.html?q=Terror">Terror</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Ajuda</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Suporte</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Privacidade</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 PipocaFlix. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="/config/baserow.js"></script>
+    <script src="/js/api.js"></script>
+    <script src="/js/security.js"></script>
+    <script src="/js/adblock.js"></script>
+    <script src="/js/ads.js"></script>
+    <script src="/js/home.js"></script>
+</body>
+</html>
